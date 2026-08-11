@@ -1,0 +1,24 @@
+.pnpm-store/
+node_modules/
+**/node_modules/
+node_modules-stale/
+**/node_modules-stale/
+**/dist/
+
+church 3/
+churche 2/
+portfolio/
+sprite-walker/
+
+.DS_Store
+Thumbs.db
+
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+.env
+.env.*
+!.env.example

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en" class="projects-document" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Recent projects from a playful creative developer portfolio." />
+    <meta name="theme-color" content="#171816" />
+    <title>Recent Projects | Creative Developer</title>
+    <link rel="stylesheet" href="./styles.css?v=25" />
+    <script src="./projects.js?v=1" defer></script>
+  </head>
+  <body class="projects-page">
+    <a class="skip-link" href="#projects">Skip to projects</a>
+
+    <header class="topbar projects-topbar">
+      <a class="brand" href="./index.html#intro" aria-label="Back to portfolio start">
+        <span class="brand-mark" aria-hidden="true">+</span>
+        <span>Creative Developer</span>
+      </a>
+
+      <nav class="quest-nav" aria-label="Portfolio navigation">
+        <a href="./index.html#work">Back to Work</a>
+        <a href="#projects" class="is-active">Projects</a>
+        <a href="./index.html#contact">Contact</a>
+      </nav>
+
+      <div class="topbar-actions">
+        <a class="project-home-link" href="./index.html#work">Exit vault</a>
+        <button class="theme-toggle" type="button" aria-label="Switch to light mode" aria-pressed="true">
+          <span class="theme-toggle-track" aria-hidden="true"><span></span></span>
+          <span class="theme-toggle-label">Dark</span>
+        </button>
+      </div>
+    </header>
+
+    <main id="projects" class="projects-main">
+      <section class="projects-hero" aria-labelledby="projects-title">
+        <div class="project-ambient" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <p class="kicker">Project vault</p>
+        <h1 id="projects-title">Three fresh builds, still warm from the compiler.</h1>
+        <p class="hero-lede">A little archive of recent sites: polished church experiences, animated pages, and enough responsive layout wrangling to earn a tiny trophy.</p>
+      </section>
+
+      <section class="projects-grid" aria-label="Recent projects">
+        <article class="project-card project-card-large" style="--delay: 0ms">
+          <a class="project-shot project-shot-brigid" href="./work/st-brigid/" aria-label="Open the full St. Brigid Parish website">
+            <img src="./portfolio/home-interactive-desktop.png" alt="St. Brigid Parish homepage preview" fetchpriority="high" decoding="async" />
+          </a>
+          <div class="project-card-copy">
+            <p class="panel-kicker">React and motion</p>
+            <h2>St. Brigid Parish</h2>
+            <p>A historic parish site with cinematic page transitions, candlelit warmth, and layout discipline that actually behaves on mobile. Very polite, very coded.</p>
+            <div class="project-details">
+              <span>React</span>
+              <span>Vite</span>
+              <span>Motion</span>
+              <span>GSAP</span>
+            </div>
+            <a class="primary-action" href="./work/st-brigid/">Open full website</a>
+          </div>
+        </article>
+
+        <article class="project-card" style="--delay: 110ms">
+          <a class="project-shot project-shot-ecclesia" href="./work/ecclesia/" aria-label="Open the full Ecclesia Church website">
+            <img src="./churche%202/src/assets/ecclesia-hero.png" alt="Ecclesia Church homepage preview" />
+          </a>
+          <div class="project-card-copy">
+            <p class="panel-kicker">GSAP energy</p>
+            <h2>Ecclesia Church</h2>
+            <p>A bold church concept with bento sections, moving imagery, and enough smooth scroll flavor to make the page feel like it knows where it is going.</p>
+            <div class="project-details">
+              <span>React</span>
+              <span>GSAP</span>
+              <span>Bento layout</span>
+            </div>
+            <a class="primary-action" href="./work/ecclesia/">Open full website</a>
+          </div>
+        </article>
+
+        <article class="project-card" style="--delay: 220ms">
+          <a class="project-shot project-shot-grace" href="./work/grace-harbor/" aria-label="Open the full Grace Harbor Church website">
+            <img src="./church%203/assets/hero-church-community.webp" alt="Grace Harbor Church homepage preview" />
+          </a>
+          <div class="project-card-copy">
+            <p class="panel-kicker">Static site craft</p>
+            <h2>Grace Harbor Church</h2>
+            <p>A full church site with events, sermons, forms, structured data, and accessibility details. Basically the responsible adult of the trio.</p>
+            <div class="project-details">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+              <span>Responsive</span>
+            </div>
+            <a class="primary-action" href="./work/grace-harbor/">Open full website</a>
+          </div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
