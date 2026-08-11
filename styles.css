@@ -1111,8 +1111,8 @@ button:focus-visible, a:focus-visible {
       "nav nav";
     gap: 12px 16px;
     padding: 12px 16px 14px;
-    background: color-mix(in srgb, var(--page) 94%, transparent);
-    backdrop-filter: blur(14px);
+    background: var(--page);
+    backdrop-filter: none;
   }
 
   .brand { grid-area: brand; }
@@ -1214,6 +1214,35 @@ button:focus-visible, a:focus-visible {
 
   .hero-copy { margin-bottom: 28px; }
 
+  .hero-copy .kicker,
+  .hero-copy h1,
+  .hero-copy .hero-lede {
+    animation: mobile-soft-in 420ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .hero-copy .hero-lede { animation-delay: 80ms; }
+  .hero-copy:hover h1 em {
+    transform: none;
+    letter-spacing: inherit;
+  }
+
+  .ambient-diamonds span {
+    animation: mobile-diamond-breathe 5s ease-in-out infinite;
+    will-change: opacity;
+  }
+
+  .ambient-diamonds span:nth-child(n+5) { display: none; }
+
+  @keyframes mobile-soft-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes mobile-diamond-breathe {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 0.68; }
+  }
+
   .hero-world {
     min-height: 430px;
     border-color: color-mix(in srgb, var(--accent) 42%, var(--line));
@@ -1243,7 +1272,8 @@ button:focus-visible, a:focus-visible {
     image-rendering: pixelated;
     background: url('./assets/16x32 Idle-Sheet.png') 0 0 / 224px 560px no-repeat;
     transform: translateX(-50%);
-    animation: idle-frames 1.05s steps(4) infinite, mobile-character-pop 620ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    backface-visibility: hidden;
+    animation: idle-frames 1.05s steps(4) infinite, mobile-character-pop 360ms ease-out both;
   }
 
   .world-note {
@@ -1254,8 +1284,8 @@ button:focus-visible, a:focus-visible {
   }
 
   @keyframes mobile-character-pop {
-    from { opacity: 0; transform: translateX(-50%) translateY(-22px) scale(0.82); filter: blur(4px); }
-    to { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); filter: none; }
+    from { opacity: 0; }
+    to { opacity: 1; }
   }
 
   .checkpoint-layout,
@@ -1280,6 +1310,17 @@ button:focus-visible, a:focus-visible {
   .checkpoint-panel::after { inset: 8px; }
   .checkpoint-panel h2 { font-size: clamp(2.8rem, 13vw, 4.8rem); }
   .checkpoint-panel > p:last-child { max-width: 36rem; }
+
+  .checkpoint-panel.is-revealed h2,
+  .checkpoint-panel.is-revealed .panel-kicker,
+  .checkpoint-panel.is-revealed > p:not(.panel-kicker),
+  .checkpoint-panel.is-revealed .project-details,
+  .checkpoint-panel.is-revealed .work-actions,
+  .checkpoint-panel.is-revealed .loadout-list,
+  .checkpoint-panel.is-revealed .contact-actions,
+  .checkpoint-panel.is-revealed .text-link {
+    animation: none;
+  }
 
   .project-details {
     gap: 8px;
@@ -1381,7 +1422,7 @@ button:focus-visible, a:focus-visible {
   }
 
   .spawn-marker::before {
-    transform: translateX(-50%) scale(0.92);
+    transform: translateX(-50%);
     transform-origin: 50% 100%;
   }
 

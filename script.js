@@ -451,7 +451,7 @@ const stageObserver = new IntersectionObserver(
     if (index !== lastObservedIndex) {
       lastObservedIndex = index;
       if (index > 0) revealCheckpoint(stages[index]);
-      respawnAfterScroll(index);
+      if (desktop.matches) respawnAfterScroll(index);
     }
   },
   { threshold: [0.45, 0.65] },
