@@ -1103,35 +1103,160 @@ button:focus-visible, a:focus-visible {
 
   .topbar {
     position: sticky;
-    height: 64px;
+    min-height: 72px;
+    height: auto;
     grid-template-columns: 1fr auto;
-    padding: 0 16px;
-    background: var(--page);
-    backdrop-filter: none;
+    grid-template-areas:
+      "brand actions"
+      "nav nav";
+    gap: 12px 16px;
+    padding: 12px 16px 14px;
+    background: color-mix(in srgb, var(--page) 94%, transparent);
+    backdrop-filter: blur(14px);
   }
 
-  .brand > span:last-child,
-  .quest-nav,
+  .brand { grid-area: brand; }
+  .brand > span:last-child { display: inline; }
+
+  .quest-nav {
+    grid-area: nav;
+    display: flex;
+    gap: 8px;
+    width: calc(100vw - 32px);
+    overflow-x: auto;
+    padding: 2px 0 4px;
+    scrollbar-width: none;
+  }
+
+  .quest-nav::-webkit-scrollbar { display: none; }
+
+  .quest-nav a {
+    flex: 0 0 auto;
+    min-height: 36px;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 12px;
+    border: 1px solid var(--line);
+    color: var(--muted);
+    background: var(--surface);
+    font-size: 0.66rem;
+  }
+
+  .quest-nav a::after { display: none; }
+  .quest-nav a.is-active,
+  .quest-nav a:hover {
+    color: var(--accent-ink);
+    border-color: var(--accent);
+    background: var(--accent);
+  }
+
+  .topbar-actions { grid-area: actions; gap: 8px; }
   .speed-control,
   .game-layer,
   .guide-button,
   .checkpoint-marker { display: none; }
 
+  .level-counter {
+    min-height: 38px;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 10px;
+    border: 1px solid var(--line);
+    color: var(--accent);
+    background: var(--surface);
+    font-size: 0.62rem;
+  }
+
+  .theme-toggle {
+    min-width: 42px;
+    min-height: 38px;
+    justify-content: center;
+    padding: 0 9px;
+  }
+
+  .theme-toggle-label { display: none; }
+
   .stage,
   .stage-intro {
     min-height: auto;
     display: block;
-    padding: 72px 20px;
-    border-bottom: none;
-    background: var(--page);
+    padding: 64px 20px;
+    border-bottom: 1px solid var(--line);
+    background:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px),
+      radial-gradient(circle at 88% 12%, color-mix(in srgb, var(--accent) 13%, transparent), transparent 34%),
+      var(--page);
+    background-size: 54px 54px, 54px 54px, auto, auto;
     scroll-snap-align: none;
   }
 
   .stage::after { display: none; }
-  .stage-intro { padding-top: 54px; }
-  .stage h1, .stage h2 { font-size: clamp(3rem, 15vw, 5rem); }
-  .hero-copy { margin-bottom: 40px; }
-  .hero-world { min-height: 430px; }
+  .stage-intro { padding-top: 44px; }
+
+  .stage h1,
+  .stage h2 {
+    max-width: 9.6ch;
+    margin-bottom: 20px;
+    font-size: clamp(3rem, 14.4vw, 5rem);
+    line-height: 0.92;
+  }
+
+  .kicker,
+  .panel-kicker { margin-bottom: 16px; }
+
+  .hero-lede,
+  .large-copy {
+    max-width: 34rem;
+    font-size: 1.02rem;
+    line-height: 1.58;
+  }
+
+  .hero-copy { margin-bottom: 28px; }
+
+  .hero-world {
+    min-height: 430px;
+    border-color: color-mix(in srgb, var(--accent) 42%, var(--line));
+    box-shadow: 8px 8px 0 color-mix(in srgb, var(--accent) 28%, transparent);
+    background-size: 42px 42px, 42px 42px, auto, auto;
+  }
+
+  .hero-world::before {
+    left: 14%;
+    right: 14%;
+    bottom: 21%;
+  }
+
+  .spawn-marker {
+    bottom: 21%;
+    width: 92px;
+    height: 18px;
+  }
+
+  .spawn-marker::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 9px;
+    width: 56px;
+    height: 112px;
+    image-rendering: pixelated;
+    background: url('./assets/16x32 Idle-Sheet.png') 0 0 / 224px 560px no-repeat;
+    transform: translateX(-50%);
+    animation: idle-frames 1.05s steps(4) infinite, mobile-character-pop 620ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .world-note {
+    right: 14px;
+    bottom: 12px;
+    max-width: 16ch;
+    text-align: right;
+  }
+
+  @keyframes mobile-character-pop {
+    from { opacity: 0; transform: translateX(-50%) translateY(-22px) scale(0.82); filter: blur(4px); }
+    to { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); filter: none; }
+  }
 
   .checkpoint-layout,
   .checkpoint-right {
@@ -1142,13 +1267,49 @@ button:focus-visible, a:focus-visible {
   .game-ready .checkpoint-panel,
   .game-ready .checkpoint-panel.is-revealed {
     max-width: none;
-    padding: 0;
-    border: 0;
-    background: transparent;
-    box-shadow: none;
+    padding: 28px 22px;
+    border: 1px solid var(--line);
+    background: color-mix(in srgb, var(--surface) 92%, transparent);
+    box-shadow: 7px 7px 0 color-mix(in srgb, var(--accent) 28%, transparent);
     opacity: 1;
     transform: none;
     pointer-events: auto;
+  }
+
+  .checkpoint-panel::before { opacity: 0.55; }
+  .checkpoint-panel::after { inset: 8px; }
+  .checkpoint-panel h2 { font-size: clamp(2.8rem, 13vw, 4.8rem); }
+  .checkpoint-panel > p:last-child { max-width: 36rem; }
+
+  .project-details {
+    gap: 8px;
+    margin: 22px 0;
+  }
+
+  .project-details span {
+    padding: 7px 9px;
+    border: 1px solid var(--line);
+    background: color-mix(in srgb, var(--page) 48%, transparent);
+    font-size: 0.82rem;
+  }
+
+  .work-actions,
+  .contact-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .primary-action,
+  .secondary-action {
+    width: 100%;
+    min-height: 50px;
+    padding-inline: 16px;
+  }
+
+  .text-link {
+    justify-content: center;
+    padding: 12px 0 0;
   }
 
   .loadout-row { grid-template-columns: 1fr; gap: 8px; }
@@ -1187,8 +1348,62 @@ button:focus-visible, a:focus-visible {
 }
 
 @media (max-width: 520px) {
-  .hero-world { min-height: 340px; }
-  .stage h1, .stage h2 { font-size: clamp(2.8rem, 14.5vw, 4.6rem); }
+  .topbar {
+    padding-inline: 12px;
+  }
+
+  .brand {
+    max-width: 150px;
+    gap: 8px;
+  }
+
+  .brand > span:last-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.64rem;
+  }
+
+  .quest-nav { width: calc(100vw - 24px); }
+
+  .level-counter { display: none; }
+
+  .stage,
+  .stage-intro {
+    padding: 52px 16px;
+  }
+
+  .stage-intro { padding-top: 36px; }
+
+  .hero-world {
+    min-height: 350px;
+    box-shadow: 6px 6px 0 color-mix(in srgb, var(--accent) 25%, transparent);
+  }
+
+  .spawn-marker::before {
+    transform: translateX(-50%) scale(0.92);
+    transform-origin: 50% 100%;
+  }
+
+  .stage h1,
+  .stage h2 {
+    font-size: clamp(2.7rem, 14vw, 4.35rem);
+    letter-spacing: -0.065em;
+  }
+
+  .game-ready .checkpoint-panel,
+  .game-ready .checkpoint-panel.is-revealed {
+    padding: 24px 18px;
+    box-shadow: 5px 5px 0 color-mix(in srgb, var(--accent) 24%, transparent);
+  }
+
+  .checkpoint-panel h2 { font-size: clamp(2.45rem, 12.4vw, 4rem); }
+
+  .hero-lede,
+  .large-copy {
+    font-size: 0.98rem;
+  }
+
   .projects-main { padding-inline: 16px; }
   .project-shot { min-height: 210px; }
   .project-card-copy { padding: 24px; }
