@@ -1,3 +1,3 @@
 # aymanemaach.me
 
-Personal portfolio for Ayman Emaach, hosted with GitHub Pages.
+Personal portfolio for Aymane Maach, hosted with GitHub Pages.

@@ -3,12 +3,59 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Recent projects from a playful creative developer portfolio." />
+    <meta name="description" content="Recent web development projects by Aymane Maach, including responsive church websites, animated interfaces, React builds, and frontend design work." />
+    <meta name="author" content="Aymane Maach" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://aymanemaach.me/projects.html" />
     <meta name="theme-color" content="#171816" />
-    <title>Recent Projects | Creative Developer</title>
+    <meta property="og:title" content="Projects | Aymane Maach" />
+    <meta property="og:description" content="Selected web development projects by Aymane Maach: responsive sites, React interfaces, GSAP animation, and frontend craft." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://aymanemaach.me/projects.html" />
+    <meta property="og:site_name" content="Aymane Maach Portfolio" />
+    <meta property="og:image" content="https://aymanemaach.me/assets/project-st-brigid-preview.jpg?v=2" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Projects | Aymane Maach" />
+    <meta name="twitter:description" content="Selected web development projects by Aymane Maach, including responsive sites, React interfaces, and frontend animation." />
+    <meta name="twitter:image" content="https://aymanemaach.me/assets/project-st-brigid-preview.jpg?v=2" />
+    <title>Projects | Aymane Maach Web Developer Portfolio</title>
     <link rel="preload" href="./assets/project-st-brigid-preview.jpg?v=2" as="image" type="image/jpeg" fetchpriority="high" />
     <link rel="stylesheet" href="./styles.css?v=27" />
     <script src="./projects.js?v=1" defer></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Aymane Maach Projects",
+        "url": "https://aymanemaach.me/projects.html",
+        "description": "Selected web development projects by Aymane Maach.",
+        "author": {
+          "@type": "Person",
+          "name": "Aymane Maach",
+          "url": "https://aymanemaach.me/"
+        },
+        "hasPart": [
+          {
+            "@type": "CreativeWork",
+            "name": "St. Brigid Parish",
+            "url": "https://aymanemaach.me/work/st-brigid/",
+            "programmingLanguage": ["React", "JavaScript", "CSS"]
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Ecclesia Church",
+            "url": "https://aymanemaach.me/work/ecclesia/",
+            "programmingLanguage": ["React", "JavaScript", "CSS"]
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Grace Harbor Church",
+            "url": "https://aymanemaach.me/work/grace-harbor/",
+            "programmingLanguage": ["HTML", "CSS", "JavaScript"]
+          }
+        ]
+      }
+    </script>
   </head>
   <body class="projects-page">
     <a class="skip-link" href="#projects">Skip to projects</a>
@@ -16,7 +63,7 @@
     <header class="topbar projects-topbar">
       <a class="brand" href="./index.html#intro" aria-label="Back to portfolio start">
         <span class="brand-mark" aria-hidden="true">+</span>
-        <span>Creative Developer</span>
+        <span>Aymane Maach</span>
       </a>
 
       <nav class="quest-nav" aria-label="Portfolio navigation">
@@ -40,7 +87,7 @@
           <span></span><span></span><span></span><span></span><span></span>
         </div>
         <p class="kicker">Project vault</p>
-        <h1 id="projects-title">Three fresh builds, still warm from the compiler.</h1>
+        <h1 id="projects-title">Web development projects by Aymane Maach.</h1>
         <p class="hero-lede">A little archive of recent sites: polished church experiences, animated pages, and enough responsive layout wrangling to earn a tiny trophy.</p>
       </section>
 
