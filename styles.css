@@ -845,6 +845,172 @@ button:focus-visible, a:focus-visible {
   line-height: 1.6;
 }
 
+.contact-main {
+  display: grid;
+  gap: clamp(28px, 5vw, 64px);
+}
+
+.contact-hero {
+  position: relative;
+  width: min(1180px, 100%);
+  min-height: min(48dvh, 520px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+  align-items: center;
+  gap: clamp(24px, 5vw, 72px);
+  margin: 0 auto;
+  padding: clamp(38px, 6vw, 74px) 0;
+}
+
+.contact-hero h1 {
+  max-width: 11ch;
+  margin: 0 0 26px;
+  font-size: clamp(3.2rem, 8vw, 8.4rem);
+  font-weight: 900;
+  letter-spacing: -0.075em;
+  line-height: 0.88;
+  animation: hero-title-in 900ms 80ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.contact-side-panel,
+.contact-form,
+.contact-form-copy {
+  position: relative;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  box-shadow: 8px 8px 0 color-mix(in srgb, var(--accent) 26%, transparent);
+}
+
+.contact-side-panel {
+  padding: clamp(22px, 3vw, 34px);
+  align-self: end;
+}
+
+.contact-side-panel ul {
+  display: grid;
+  gap: 12px;
+  margin: 18px 0 28px;
+  padding: 0;
+  list-style: none;
+}
+
+.contact-side-panel li {
+  padding: 11px 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.contact-form-section {
+  width: min(1180px, 100%);
+  display: grid;
+  grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.28fr);
+  gap: 22px;
+  margin: 0 auto;
+}
+
+.contact-form-copy,
+.contact-form {
+  padding: clamp(24px, 4vw, 42px);
+}
+
+.contact-form-copy h2 {
+  max-width: 9ch;
+  margin: 0 0 20px;
+  font-size: clamp(2.8rem, 6vw, 6.2rem);
+  font-weight: 900;
+  letter-spacing: -0.07em;
+  line-height: 0.9;
+}
+
+.contact-form-copy p:last-child {
+  max-width: 34ch;
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.contact-form {
+  display: grid;
+  gap: 18px;
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.contact-form label {
+  display: grid;
+  gap: 9px;
+}
+
+.contact-form label span {
+  color: var(--ink);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  color: var(--ink);
+  background: color-mix(in srgb, var(--page) 72%, var(--surface));
+  font: inherit;
+  font-size: 1rem;
+}
+
+.contact-form input,
+.contact-form select {
+  min-height: 54px;
+  padding: 0 15px;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 180px;
+  padding: 15px;
+  line-height: 1.55;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: color-mix(in srgb, var(--muted) 72%, transparent);
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+  border-color: var(--accent);
+}
+
+.contact-form-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.contact-form button {
+  cursor: pointer;
+}
+
+.form-note {
+  max-width: 42ch;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
 @keyframes project-card-in {
   to { opacity: 1; transform: translateY(0); }
 }
@@ -1370,7 +1536,10 @@ button:focus-visible, a:focus-visible {
   }
   .projects-grid,
   .project-card,
-  .project-card-large {
+  .project-card-large,
+  .contact-hero,
+  .contact-form-section,
+  .field-grid {
     display: grid;
     grid-template-columns: 1fr;
   }
@@ -1386,6 +1555,23 @@ button:focus-visible, a:focus-visible {
     border-bottom: 1px solid var(--line);
   }
   .project-card-copy h2 { font-size: clamp(2.6rem, 13vw, 4.6rem); }
+  .contact-hero {
+    min-height: auto;
+    padding: 58px 0 12px;
+  }
+  .contact-hero h1 {
+    max-width: 9.8ch;
+    font-size: clamp(3rem, 15vw, 5.4rem);
+  }
+  .contact-side-panel,
+  .contact-form,
+  .contact-form-copy {
+    box-shadow: 7px 7px 0 color-mix(in srgb, var(--accent) 24%, transparent);
+  }
+  .contact-form-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 520px) {
@@ -1448,6 +1634,14 @@ button:focus-visible, a:focus-visible {
   .projects-main { padding-inline: 16px; }
   .project-shot { min-height: 210px; }
   .project-card-copy { padding: 24px; }
+  .contact-form,
+  .contact-form-copy,
+  .contact-side-panel {
+    padding: 22px;
+  }
+  .contact-form-copy h2 {
+    font-size: clamp(2.45rem, 12.4vw, 4rem);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

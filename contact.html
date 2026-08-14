@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en" class="projects-document" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Contact Aymane Maach for web development projects, frontend work, responsive websites, animation, and interactive portfolio experiences." />
+    <meta name="author" content="Aymane Maach" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://aymanemaach.me/contact.html" />
+    <meta name="theme-color" content="#171816" />
+    <meta property="og:title" content="Contact Aymane Maach" />
+    <meta property="og:description" content="Send a message to Aymane Maach about web development, frontend projects, responsive websites, and creative interface work." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://aymanemaach.me/contact.html" />
+    <meta property="og:site_name" content="Aymane Maach Portfolio" />
+    <meta property="og:image" content="https://aymanemaach.me/assets/project-st-brigid-preview.jpg?v=2" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Contact Aymane Maach" />
+    <meta name="twitter:description" content="Send a project message to Aymane Maach, creative web developer." />
+    <meta name="twitter:image" content="https://aymanemaach.me/assets/project-st-brigid-preview.jpg?v=2" />
+    <title>Contact Aymane Maach | Web Developer</title>
+    <link rel="stylesheet" href="./styles.css?v=30" />
+    <script src="./contact.js?v=1" defer></script>
+  </head>
+  <body class="projects-page contact-page">
+    <a class="skip-link" href="#contact-form">Skip to contact form</a>
+
+    <header class="topbar projects-topbar">
+      <a class="brand" href="./index.html#intro" aria-label="Back to portfolio start">
+        <span class="brand-mark" aria-hidden="true">+</span>
+        <span>Aymane Maach</span>
+      </a>
+
+      <nav class="quest-nav" aria-label="Portfolio navigation">
+        <a href="./index.html#about">About</a>
+        <a href="./projects.html">Projects</a>
+        <a href="./contact.html" class="is-active">Contact</a>
+      </nav>
+
+      <div class="topbar-actions">
+        <a class="project-home-link" href="./index.html#intro">Portfolio</a>
+        <button class="theme-toggle" type="button" aria-label="Switch to light mode" aria-pressed="true">
+          <span class="theme-toggle-track" aria-hidden="true"><span></span></span>
+          <span class="theme-toggle-label">Dark</span>
+        </button>
+      </div>
+    </header>
+
+    <main class="projects-main contact-main">
+      <section class="contact-hero" aria-labelledby="contact-title">
+        <div class="project-ambient" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div>
+          <p class="kicker">Contact portal</p>
+          <h1 id="contact-title">Send Aymane Maach a project message.</h1>
+          <p class="hero-lede">Share your email, what you need, and a few details. The form will prepare a clean email you can send directly.</p>
+        </div>
+
+        <aside class="contact-side-panel" aria-label="Contact details">
+          <p class="panel-kicker">Available for</p>
+          <ul>
+            <li>Responsive websites</li>
+            <li>Frontend UI builds</li>
+            <li>Interactive portfolio ideas</li>
+            <li>Animation and motion polish</li>
+          </ul>
+          <a class="secondary-action" href="https://github.com/golbenos" target="_blank" rel="noreferrer">GitHub</a>
+        </aside>
+      </section>
+
+      <section class="contact-form-section" aria-labelledby="form-title">
+        <div class="contact-form-copy">
+          <p class="panel-kicker">Message form</p>
+          <h2 id="form-title">Tell me what you want to build.</h2>
+          <p>Keep it simple: who you are, how to reply, and what kind of website or interface you have in mind.</p>
+        </div>
+
+        <form class="contact-form" id="contact-form">
+          <div class="field-grid">
+            <label>
+              <span>Your name</span>
+              <input name="name" type="text" autocomplete="name" placeholder="Your name" required />
+            </label>
+
+            <label>
+              <span>Your email</span>
+              <input name="email" type="email" autocomplete="email" placeholder="you@example.com" required />
+            </label>
+          </div>
+
+          <label>
+            <span>Project type</span>
+            <select name="projectType" required>
+              <option value="">Choose one</option>
+              <option>Website build</option>
+              <option>Portfolio</option>
+              <option>Frontend fix</option>
+              <option>Animation or interaction</option>
+              <option>Other</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Message</span>
+            <textarea name="message" rows="7" placeholder="Write the message here..." required></textarea>
+          </label>
+
+          <div class="contact-form-actions">
+            <button class="primary-action" type="submit">Prepare Email</button>
+            <p class="form-note" id="form-note" role="status" aria-live="polite">Your email app will open with the message ready to send.</p>
+          </div>
+        </form>
+
+        <noscript>
+          <p class="form-note">JavaScript is off. Email Aymane directly from your email app.</p>
+        </noscript>
+      </section>
+    </main>
+  </body>
+</html>
